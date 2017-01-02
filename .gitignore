@@ -29,8 +29,8 @@ node_modules
 # Bower
 bower_components/
 
-# Dist folder
-dist/
+# Dist folder (commented out because I want to host the site on github pages)
+# dist/
 
 # IDE/Editor data
 .idea/
