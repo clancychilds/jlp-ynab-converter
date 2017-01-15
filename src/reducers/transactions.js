@@ -3,7 +3,7 @@
  * If you change the type from object to something else, do not forget to update
  * src/container/App.js accordingly.
  */
-import {ADD_TRANSACTION} from '../actions/const';
+import {ADD_TRANSACTION, CHANGE_YEAR} from '../actions/const';
 
 const initialState = [];
 
@@ -15,6 +15,19 @@ function reducer(state = initialState, action) {
     case ADD_TRANSACTION: {
       // Modify next state depending on the action and return it
       nextState.push(action.transaction);
+      return nextState;
+    }
+    
+    case CHANGE_YEAR: {
+      nextState.forEach((transaction) => {
+        console.log(transaction.parsedDate);
+        var parsedDate = new Date(transaction.parsedDate)
+        console.log(parsedDate);
+        parsedDate.setYear(action.year);
+        console.log(parsedDate);
+        transaction.parsedDate = parsedDate;
+        transaction.Date = parsedDate.toLocaleDateString();
+      });
       return nextState;
     }
     

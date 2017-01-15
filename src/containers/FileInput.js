@@ -5,17 +5,23 @@ import React, {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { uploadAndParseFile } from '../actions/';
+import { uploadAndParseFile, changeYear } from '../actions/';
 import Main from '../components/App';
 
 import FileReaderInput from 'react-file-reader-input';
 
 class FileInput extends Component {
   render() {
-    const { actions, handleChange } = this.props;
+    const { actions, handleChange, handleChangeYear } = this.props;
     return <div>
        <FileReaderInput as="binary" id="file-input"
                          onChange={ handleChange } />
+       <label>
+          Transaction Year:
+          <input type="text" name="transactionYear" 
+            defaultValue={new Date().getFullYear()}
+            onChange={ handleChangeYear }/>
+       </label>
     </div>;
   }
 }
@@ -30,7 +36,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { uploadAndParseFile };
+  const actions = { uploadAndParseFile, changeYear };
   const actionMap = { actions: bindActionCreators(actions, dispatch),
     handleChange: (e, results) => {
         results.forEach(result => {
@@ -38,6 +44,9 @@ function mapDispatchToProps(dispatch) {
           dispatch(uploadAndParseFile(file));
           console.log(`Successfully uploaded ${file.name}!`);
         });
+      },
+      handleChangeYear: (e) => {
+        dispatch(changeYear(e.target.value));
       }
     };
   return actionMap;

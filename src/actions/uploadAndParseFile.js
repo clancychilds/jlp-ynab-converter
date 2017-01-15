@@ -3,18 +3,20 @@ import Papa from 'papaparse';
 import changeStatus from './changeStatus';
 
 function uploadAndParseFile(file) {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     Papa.parse(file, {
     	encoding: "UTF-16LE",
       skipEmptyLines: true,
       complete: function(results) {
     		console.log(results);
         var numberTransactions = 0;
+        const year = getState().inputFile.year;
         results.data.slice(3).forEach(function(line){
           var transaction = {};
-          var year = '2016';
+          
           var parsedDate = new Date(line[0]);
           parsedDate.setYear(year);
+          transaction.parsedDate = parsedDate;
           transaction.Date = parsedDate.toLocaleDateString();
           transaction.Payee = line[1];
           transaction.Category = '';

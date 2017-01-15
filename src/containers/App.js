@@ -12,7 +12,8 @@ import {
   uploadAndParseFile,
   buttonClick,
   changeStatus,
-  generateFile
+  generateFile,
+  changeYear
 } from '../actions/';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -60,7 +61,8 @@ function mapDispatchToProps(dispatch) {
     uploadAndParseFile,
     buttonClick,
     changeStatus,
-    generateFile
+    generateFile,
+    changeYear
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

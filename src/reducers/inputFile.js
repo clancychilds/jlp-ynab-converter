@@ -3,9 +3,9 @@
  * If you change the type from object to something else, do not forget to update
  * src/container/App.js accordingly.
  */
-import {UPLOAD_FILE} from '../actions/const';
-
-const initialState = { file: undefined };
+import {UPLOAD_FILE, CHANGE_YEAR} from '../actions/const';
+var thisYear = new Date().getFullYear();
+const initialState = { file: undefined, year: thisYear };
 
 function reducer(state = initialState, action) {
   /* Keep the reducer clean - do not mutate the original state. */
@@ -14,6 +14,11 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case UPLOAD_FILE: {
       nextState.file = action.file;
+      return nextState;
+    }
+    
+    case CHANGE_YEAR: {
+      nextState.year = action.year;
       return nextState;
     }
    
