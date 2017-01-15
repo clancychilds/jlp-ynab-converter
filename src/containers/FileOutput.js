@@ -14,7 +14,10 @@ import Main from '../components/App';
 class FileOutput extends Component {
   
   generateFile() {   
-    return Papa.unparse(this.props.transactions);
+    return Papa.unparse({
+      data: this.props.transactions, 
+      fields: ['Date','Payee','Category','Memo','Outflow','Inflow']
+    });
   }
   
   render() {
@@ -46,7 +49,9 @@ class FileOutput extends Component {
       accessor: 'Inflow'
     }
     ];
-  return <div><ReactTable data={transactions} columns={columns} />
+  return <div><ReactTable data={transactions} columns={columns} loading={false}
+               pageSize={50} minRows={0} showPagination={false} showPageJump={false}
+               showPageSizeOptions={false} />
     <DownloadLink filename="jlp_card_ynab.csv"
     label="Download YNAB file"
     exportFile={ this.generateFile.bind(this) }/></div>
