@@ -42,7 +42,6 @@ function mapDispatchToProps(dispatch) {
         results.forEach(result => {
           const [e, file] = result;
           dispatch(uploadAndParseFile(file));
-          console.log(`Successfully uploaded ${file.name}!`);
         });
       },
       handleChangeYear: (e) => {

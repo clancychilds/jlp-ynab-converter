@@ -8,7 +8,6 @@ function uploadAndParseFile(file) {
     	encoding: "UTF-16LE",
       skipEmptyLines: true,
       complete: function(results) {
-    		console.log(results);
         var numberTransactions = 0;
         const year = getState().inputFile.year;
         results.data.slice(3).forEach(function(line){
@@ -28,7 +27,6 @@ function uploadAndParseFile(file) {
             transaction.Outflow = line[2];
             transaction.Inflow = '';
           }
-          console.log(transaction);
           dispatch(addTransaction(transaction));
           numberTransactions++;
         });

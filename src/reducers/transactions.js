@@ -20,11 +20,8 @@ function reducer(state = initialState, action) {
     
     case CHANGE_YEAR: {
       nextState.forEach((transaction) => {
-        console.log(transaction.parsedDate);
         var parsedDate = new Date(transaction.parsedDate)
-        console.log(parsedDate);
         parsedDate.setYear(action.year);
-        console.log(parsedDate);
         transaction.parsedDate = parsedDate;
         transaction.Date = parsedDate.toLocaleDateString();
       });
