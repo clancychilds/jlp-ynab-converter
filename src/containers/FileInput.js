@@ -15,7 +15,9 @@ class FileInput extends Component {
     const { actions, handleChange, handleChangeYear } = this.props;
     return <div>
        <FileReaderInput as="binary" id="file-input"
-                         onChange={ handleChange } />
+                         onChange={ handleChange }>
+       <button>Select JL Partnership Card Export File...</button>
+       </FileReaderInput>
        <label>
           Transaction Year:
           <input type="text" name="transactionYear" 

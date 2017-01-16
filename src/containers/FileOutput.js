@@ -49,7 +49,7 @@ class FileOutput extends Component {
       accessor: 'Inflow'
     }
     ];
-  return <div><ReactTable data={transactions} columns={columns} loading={false}
+  return <div style={{display: ((transactions.length > 0) ? 'block' : 'none')}}><ReactTable data={transactions} columns={columns} loading={false}
                pageSize={50} minRows={0} showPagination={false} showPageJump={false}
                showPageSizeOptions={false} />
     <DownloadLink filename="jlp_card_ynab.csv"
