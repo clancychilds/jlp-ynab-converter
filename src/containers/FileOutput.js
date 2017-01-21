@@ -49,12 +49,14 @@ class FileOutput extends Component {
       accessor: 'Inflow'
     }
     ];
-  return <div style={{display: ((transactions.length > 0) ? 'block' : 'none')}}><ReactTable data={transactions} columns={columns} loading={false}
+  return <div style={{display: ((transactions.length > 0) ? 'block' : 'none')}}>
+    <DownloadLink filename="jlp_card_ynab.csv"
+    label="-> Download YNAB file <-"
+    exportFile={ this.generateFile.bind(this) } style={{color: 'lightgreen'}}/>
+    <ReactTable data={transactions} columns={columns} loading={false}
                pageSize={50} minRows={0} showPagination={false} showPageJump={false}
                showPageSizeOptions={false} />
-    <DownloadLink filename="jlp_card_ynab.csv"
-    label="Download YNAB file"
-    exportFile={ this.generateFile.bind(this) }/></div>
+    </div>
   }
 }
 
