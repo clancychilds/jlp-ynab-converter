@@ -4,8 +4,8 @@ import React, {
 } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ReactTable from 'react-table';
-import DownloadLink from 'react-download-link'
+import Table from 'rc-table';
+import DownloadLink from 'react-download-link';
 import Papa from 'papaparse';
 
 import { } from '../actions/';
@@ -25,37 +25,31 @@ class FileOutput extends Component {
     const { transactions } = this.props;
     const { exportFile } = this.props;
     const columns = [{
-      header: 'Date',
-      accessor: 'Date'
+      title: 'Date',
+      key: 'Date',
+      dataIndex: 'Date'
     },
     {
-      header: 'Payee',
-      accessor: 'Payee'
+      title: 'Payee',
+      key: 'Payee',
+      dataIndex: 'Payee'
     },
     {
-      header: 'Category',
-      accessor: 'Category'
+      title: 'Outflow',
+      key: 'Outflow',
+      dataIndex: 'Outflow'
     },
     {
-      header: 'Memo',
-      accessor: 'Memo'
-    },
-    {
-      header: 'Outflow',
-      accessor: 'Outflow'
-    },
-    {
-      header: 'Inflow',
-      accessor: 'Inflow'
+      title: 'Inflow',
+      key: 'Inflow',
+      dataIndex: 'Inflow'
     }
     ];
-  return <div style={{display: ((transactions.length > 0) ? 'block' : 'none')}}>
+  return <div style={{display: ((transactions.length > 0) ? 'inline-block' : 'none')}}>
     <DownloadLink filename="jlp_card_ynab.csv"
-    label="-> Download YNAB file <-"
+    label="-> Download YNAB-formatted CSV file <-"
     exportFile={ this.generateFile.bind(this) } style={{color: 'lightgreen'}}/>
-    <ReactTable data={transactions} columns={columns} loading={false}
-               pageSize={50} minRows={0} showPagination={false} showPageJump={false}
-               showPageSizeOptions={false} />
+    <Table data={transactions} columns={columns} prefixCls='preview-table'/>
     </div>
   }
 }
