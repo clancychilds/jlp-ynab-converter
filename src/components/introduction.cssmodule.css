@@ -1,0 +1,19 @@
+.introduction-component {
+  border: 1px dashed #fff;
+  margin: 10px auto;
+  width: 80%;
+  text-align: left;
+  padding: 5px;
+}
+
+.introduction-component a {
+  color: inherit;
+}
+
+.introduction-component div {
+  margin: 10px;
+}
+
+.introduction-component h1 {
+  text-align: center;
+}

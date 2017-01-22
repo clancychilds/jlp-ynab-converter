@@ -16,7 +16,7 @@ class FileInput extends Component {
     return <div>
        <FileReaderInput as="binary" id="file-input"
                          onChange={ handleChange }>
-       <button>Select JL Partnership Card Export File...</button>
+       <button>Upload JL Partnership Card Export File...</button>
        </FileReaderInput>
        <label>
     Transaction Year:&nbsp;

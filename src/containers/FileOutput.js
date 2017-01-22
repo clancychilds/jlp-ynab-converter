@@ -45,7 +45,7 @@ class FileOutput extends Component {
       dataIndex: 'Inflow'
     }
     ];
-  return <div style={{display: ((transactions.length > 0) ? 'inline-block' : 'none')}}>
+  return <div style={{display: ((transactions.length > 0) ? 'block' : 'none')}}>
     <DownloadLink filename="jlp_card_ynab.csv"
     label="-> Download YNAB-formatted CSV file <-"
     exportFile={ this.generateFile.bind(this) } style={{color: 'lightgreen'}}/>
