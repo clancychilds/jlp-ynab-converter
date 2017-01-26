@@ -4,6 +4,7 @@ import FileInput from '../containers/FileInput';
 import FileOutput from '../containers/FileOutput';
 import StatusDisplay from '../containers/StatusDisplay';
 import Introduction from './Introduction';
+import ReactGA from 'react-ga';
 import './app.css';
 
 class AppComponent extends React.Component {
@@ -22,6 +23,11 @@ class AppComponent extends React.Component {
         </div>
       </div>
     );
+  }
+  
+  componentDidMount() {
+    ReactGA.initialize('UA-3126721-7');
+    ReactGA.pageview(window.location.pathname);
   }
 }
 

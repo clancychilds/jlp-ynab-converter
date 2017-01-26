@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 
 import { uploadAndParseFile, changeYear } from '../actions/';
 import Main from '../components/App';
-
+import ReactGA from 'react-ga';
 import FileReaderInput from 'react-file-reader-input';
 
 class FileInput extends Component {
@@ -44,6 +44,10 @@ function mapDispatchToProps(dispatch) {
         results.forEach(result => {
           const [e, file] = result;
           dispatch(uploadAndParseFile(file));
+        });
+        ReactGA.event({
+          category: 'File Upload',
+          action: 'File Uploaded'
         });
       },
       handleChangeYear: (e) => {
