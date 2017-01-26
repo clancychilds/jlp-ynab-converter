@@ -45,6 +45,10 @@ class Introduction extends React.Component {
       JLP website and formats it into the YNAB CSV format for download. I might make an OFX version
       as well if I find the time.
       </div>
+      <h2>Support and Contributing</h2>
+      <div>
+        Feel free to log issues or submit pull requests at <a href='https://github.com/clancychilds/jlp-ynab-converter'>https://github.com/clancychilds/jlp-ynab-converter</a> Will try to help out where possible.
+      </div>
       </div>
     );
   }
