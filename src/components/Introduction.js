@@ -27,6 +27,9 @@ class Introduction extends React.Component {
       as it will only export the first page. Instead, make sure to do a transaction search for the date
       range you need and then export to get the full list. I raised this problem with support and they
       brushed me off saying something about "taking it on as a feature request". Morons.</div>
+      <h2>Change Log</h2>
+        <div>03-Feb-2017 - JL decides to switch from UTF16LE to Western - ISO Latin 1 encoding.</div>
+        <div>26-Jan-2017 - Initial launch</div>
       <h2>Why This Exists</h2>
       <div>
         In October of 2016, The John Lewis Partnership made a bunch of changes
