@@ -5,7 +5,7 @@ import changeStatus from './changeStatus';
 function uploadAndParseFile(file) {
   return (dispatch, getState) => {
     Papa.parse(file, {
-    	encoding: "UTF-16LE",
+    	encoding: "ISO-8859-1",
       skipEmptyLines: true,
       complete: function(results) {
         var numberTransactions = 0;
