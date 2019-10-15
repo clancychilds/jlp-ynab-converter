@@ -28,6 +28,7 @@ class Introduction extends React.Component {
       range you need and then export to get the full list. I raised this problem with support and they
       brushed me off saying something about "taking it on as a feature request". Morons.</div>
       <h2>Change Log</h2>
+        <div>15-Oct-2019 - JL has gone and changed the whole file format. Now updated for that.</div>
         <div>03-Feb-2017 - JL decides to switch from UTF16LE to ISO-8859-1 encoding.</div>
         <div>26-Jan-2017 - Initial launch</div>
       <h2>Why This Exists</h2>
