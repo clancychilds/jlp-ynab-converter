@@ -18,12 +18,6 @@ class FileInput extends Component {
                          onChange={ handleChange }>
        <button>Upload JL Partnership Card Export File...</button>
        </FileReaderInput>
-       <label>
-    Transaction Year:&nbsp;
-          <input type="text" name="transactionYear" size='4'
-            defaultValue={new Date().getFullYear()}
-            onChange={ handleChangeYear }/>
-       </label>
     </div>;
   }
 }
