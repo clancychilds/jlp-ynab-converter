@@ -9,22 +9,20 @@ function uploadAndParseFile(file) {
       skipEmptyLines: true,
       complete: function(results) {
         var numberTransactions = 0;
-        const year = getState().inputFile.year;
-        results.data.slice(3).forEach(function(line){
+        results.data.slice(1).forEach(function(line){
+          if (line[0] == 'Pending') 
+            return;
           var transaction = {};
-          
-          var parsedDate = new Date(line[0]);
-          parsedDate.setYear(year);
-          transaction.parsedDate = parsedDate;
-          transaction.Date = parsedDate.toLocaleDateString();
+          transaction.parsedDate = new Date(line[0]);
+          transaction.Date = transaction.parsedDate.toLocaleDateString('en-US');
           transaction.Payee = line[1];
           transaction.Category = '';
           transaction.Memo = '';
-          if (line[3] == 'CR') {
+          if (line[2].startsWith("+ ")) {
             transaction.Outflow = '';
-            transaction.Inflow = line[2];
+            transaction.Inflow = line[2].replace(/[^\d\.]/g, '');
           } else {
-            transaction.Outflow = line[2];
+            transaction.Outflow = line[2].replace(/[^\d\.]/g, '');
             transaction.Inflow = '';
           }
           dispatch(addTransaction(transaction));
